@@ -20,3 +20,4 @@ The ALU supports a wide range of arithmetic and logic operations, and its correc
 - Industry-standard ASIC/FPGA verification practices.
 - Coverage-driven verification methodology.
 - Debugging randomization conflicts, mismatches, and coverage holes.
+- Key
