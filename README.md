@@ -4,7 +4,7 @@
 
 ## Overview
 This project implements and verifies a 32-bit ALU using SystemVerilog and UVM.  
-The ALU supports a wide range of arithmetic and logic operations, and its correctness is validated using a comprehensive UVM testbench.
+The ALU supports a wide range of arithmetic and logic operations, and its correctness is validated using a comprehensive UVM testbench. 
 
 ## Features
 - **Design:** 32-bit ALU with ADD, SUB, AND, OR, XOR, MUL, shift, and SLT operations.
