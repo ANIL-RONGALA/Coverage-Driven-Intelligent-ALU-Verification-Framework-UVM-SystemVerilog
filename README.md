@@ -1,5 +1,5 @@
 # Coverage-Driven ALU Verification Framework (SystemVerilog UVM)
-
+---
 This project contains a complete UVM-based verification environment for a 32-bit ALU.
 The main goal is to build a clean, modular, and coverage-oriented testbench that behaves like an industry-style verification flow.
 All components—driver, sequencer, monitor, scoreboard, coverage, and assertions—are written in SystemVerilog with UVM-1.2.
@@ -7,7 +7,7 @@ All components—driver, sequencer, monitor, scoreboard, coverage, and assertion
 The testbench uses constrained-random stimulus and a reference model to check correctness.
 Assertions are added on the interface side to monitor illegal behavior during simulation.
 The environment is structured so that anyone can extend it for more operations or integrate it into a larger processor pipeline later.
-
+---
 ## 1. Features
 Randomized Stimulus
 
@@ -30,7 +30,7 @@ The scoreboard compares DUT output vs expected output and reports mismatches cle
 Easy to Extend
 
 All files follow the standard UVM layout, making it simple to add more operations or modify the ALU.
-
+---
 ## 2. Repository Structure
 /rtl
    alu.sv
@@ -52,7 +52,7 @@ All files follow the standard UVM layout, making it simple to add more operation
    alu_assertions.sv
 
 README.md
-
+---
 ## 3. How to Run (ModelSim / QuestaSim)
 Compile
 vlog rtl/*.sv tb/*.sv assertions/*.sv +incdir+tb +incdir+assertions
@@ -65,7 +65,7 @@ Optional flags:
 
 +UVM_CONFIG_DB_TRACE
 +UVM_VERBOSITY=UVM_HIGH
-
+---
 ## 4. Testbench Architecture (Main Diagram)
 ```text
 +--------------------------------------------------------------------------+
@@ -104,7 +104,7 @@ Test
            └── Coverage   → records functional coverage
 ```
 
-### ✅ b. Agent Internal Structure (Fine-Grain View)
+### ✅ Agent Internal Structure (Fine-Grain View)
 ```text
                      my_agent
 +--------------------------------------------------+
@@ -120,7 +120,7 @@ Test
 +--------------------------------------------------+
 ```
 
-### ✅ c. Transaction/Data Flow (UVM Phases)
+### ✅ Transaction/Data Flow (UVM Phases)
 
 This shows how data moves through the verification environment:
 
@@ -141,7 +141,7 @@ This shows how data moves through the verification environment:
                                      +-----> [ my_coverage ]
 ```
 
-### ✅ d. High-Level Project Structure Diagram
+### ✅ High-Level Project Structure Diagram
 
 This is a clean top-level view of your entire project:
 
@@ -172,8 +172,8 @@ This is a clean top-level view of your entire project:
 |                                                             |
 +-------------------------------------------------------------+
 ```
-
-## 6. Bug Examples Found During Verification
+---
+## 5. Bug Examples Found During Verification
 
 During regression, the following common bugs were detected:
 
@@ -199,8 +199,8 @@ ASSERTION FAILED: AND result has illegal bits
 
 
 Triggered when the DUT produced a bit in the result that was not present in both inputs.
-
-## 7. AI-Based Future Extensions (Very Simple, Human Tone)
+---
+## 6. AI-Based Future Extensions (Very Simple, Human Tone)
 
 Even though the current project uses standard UVM, it can be extended for AI-related research:
 
@@ -214,8 +214,8 @@ This is useful for reducing simulation cycles.
 Waveform data, assertion failures, and scoreboard mismatches can be fed to an LLM that explains the most likely bug and suggests where in the RTL the issue may come from.
 
 These extensions fit well for research in AI-EDA and intelligent verification flows.
-
-## 8. Future Work
+---
+## 7. Future Work
 
 Add overflow and carry flag coverage
 
