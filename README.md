@@ -66,8 +66,7 @@ Optional flags:
 +UVM_CONFIG_DB_TRACE
 +UVM_VERBOSITY=UVM_HIGH
 
-## 4. Testbench Architecture (ASCII Diagram — 100% GitHub Safe)
-
+## 4. Testbench Architecture (Main Diagram)
 ```text
 +--------------------------------------------------------------------------+
 |                                   my_test                                |
@@ -93,26 +92,86 @@ Optional flags:
                                 +------+
 ```
 
-
-
-## 5. Sequence Flow (Simplified Diagram)
-
+### ✅ Sequence Flow (Simplified Overview)
 ```text
 Test
  └── Env
       └── Agent
-           ├── Sequencer  → generates transactions
-           ├── Driver     → drives DUT
-           ├── Monitor    → captures outputs
-           ├── Scoreboard → compares expected vs actual
-           └── Coverage   → measures functional coverage
+           ├── Sequencer  → generates randomized transactions
+           ├── Driver     → drives ALU inputs via interface
+           ├── Monitor    → samples DUT output transactions
+           ├── Scoreboard → compares DUT vs reference model
+           └── Coverage   → records functional coverage
 ```
 
+### ✅ b. Agent Internal Structure (Fine-Grain View)
+```text
+                     my_agent
++--------------------------------------------------+
+|                                                  |
+|   +----------------+     +--------------------+  |
+|   |  my_sequencer  | --> |     my_driver      |--+--> DUT
+|   +----------------+     +--------------------+  |
+|                                                  |
+|   +----------------+                              |
+|   |  my_monitor    | -----------------------------+--> scoreboard, coverage
+|   +----------------+                              |
+|                                                  |
++--------------------------------------------------+
+```
 
+### ✅ c. Transaction/Data Flow (UVM Phases)
 
+This shows how data moves through the verification environment:
 
-These diagrams will always show on GitHub (no blank boxes, no dynamic rendering).
-This is the basic transaction flow used in most UVM designs.
+```text
+[ my_sequence ]
+       |
+       v
+[ my_sequencer ]
+       |
+       v
+[ my_driver ] -----> drives --> [ DUT ]
+                                     |
+                                     v
+                            [ my_monitor ]
+                                     |
+                                     +-----> [ my_scoreboard ]
+                                     |
+                                     +-----> [ my_coverage ]
+```
+
+### ✅ d. High-Level Project Structure Diagram
+
+This is a clean top-level view of your entire project:
+
+```text
++-------------------------------------------------------------+
+|                        UVM Verification                     |
++-------------------------------------------------------------+
+|                                                             |
+|  /tb                                                        |
+|     - my_transaction.svh                                    |
+|     - my_sequence.svh                                       |
+|     - my_sequencer.svh                                      |
+|     - my_driver.svh                                         |
+|     - my_monitor.svh                                        |
+|     - my_scoreboard.svh                                     |
+|     - my_coverage.svh                                       |
+|     - my_agent.svh                                          |
+|     - my_env.svh                                            |
+|     - my_test.svh                                           |
+|                                                             |
+|  /rtl                                                       |
+|     - alu.sv                                                |
+|                                                             |
+|  /assertions                                                |
+|     - alu_assertions.sv                                     |
+|                                                             |
+|  top.sv (instantiates DUT + interface + UVM test)           |
+|                                                             |
++-------------------------------------------------------------+
+```
 
 ## 6. Bug Examples Found During Verification
 
