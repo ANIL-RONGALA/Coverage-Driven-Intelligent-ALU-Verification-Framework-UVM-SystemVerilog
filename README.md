@@ -7,9 +7,8 @@ All components—driver, sequencer, monitor, scoreboard, coverage, and assertion
 The testbench uses constrained-random stimulus and a reference model to check correctness.
 Assertions are added on the interface side to monitor illegal behavior during simulation.
 The environment is structured so that anyone can extend it for more operations or integrate it into a larger processor pipeline later.
----
 ## 1. Features
-
+---
 Randomized Stimulus
 
 The sequencer and sequence classes generate random ALU operations, including corner cases such as zero, maximum positive, and minimum negative values.
@@ -31,9 +30,9 @@ The scoreboard compares DUT output vs expected output and reports mismatches cle
 Easy to Extend
 
 All files follow the standard UVM layout, making it simple to add more operations or modify the ALU.
----
-## 2. Repository Structure
 
+## 2. Repository Structure
+---
 /rtl
    alu.sv
 
@@ -54,7 +53,7 @@ All files follow the standard UVM layout, making it simple to add more operation
    alu_assertions.sv
 
 README.md
----
+
 ## 3. How to Run (ModelSim / QuestaSim)
 ---
 Compile
@@ -68,7 +67,7 @@ Optional flags:
 
 +UVM_CONFIG_DB_TRACE
 +UVM_VERBOSITY=UVM_HIGH
----
+
 ## 4. Testbench Architecture (Main Diagram)
 ---
 ```text
