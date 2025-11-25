@@ -1,0 +1,16 @@
+qrun.out/
+work/
+*.log
+*.wlf
+*.qdb
+*.qpg
+*.qtl
+*.o
+*.d
+*.tfdb
+sessions/
+*.zip
+modelsim.ini
+*.exe
+*.dll
+*.so
