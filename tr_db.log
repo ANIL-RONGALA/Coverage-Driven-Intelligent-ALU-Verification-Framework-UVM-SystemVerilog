@@ -1,0 +1,5 @@
+  CREATE_STREAM @0 {NAME:edge_seq T:Transactions SCOPE:test.env.agent.sequencer STREAM:797}
+  CREATE_STREAM @165 {NAME:rand_seq T:Transactions SCOPE:test.env.agent.sequencer STREAM:1090}
+  CREATE_STREAM @965 {NAME:targ_seq T:Transactions SCOPE:test.env.agent.sequencer STREAM:2703}
+  CREATE_STREAM @1035 {NAME:cross_seq T:Transactions SCOPE:test.env.agent.sequencer STREAM:2853}
+  CREATE_STREAM @1845 {NAME:any_func_seq T:Transactions SCOPE:test.env.agent.sequencer STREAM:4477}
