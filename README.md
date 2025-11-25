@@ -1,4 +1,4 @@
-Coverage-Driven ALU Verification Framework (SystemVerilog UVM)
+# Coverage-Driven ALU Verification Framework (SystemVerilog UVM)
 
 This project contains a complete UVM-based verification environment for a 32-bit ALU.
 The main goal is to build a clean, modular, and coverage-oriented testbench that behaves like an industry-style verification flow.
@@ -8,7 +8,7 @@ The testbench uses constrained-random stimulus and a reference model to check co
 Assertions are added on the interface side to monitor illegal behavior during simulation.
 The environment is structured so that anyone can extend it for more operations or integrate it into a larger processor pipeline later.
 
-1. Features
+## 1. Features
 Randomized Stimulus
 
 The sequencer and sequence classes generate random ALU operations, including corner cases such as zero, maximum positive, and minimum negative values.
@@ -31,7 +31,7 @@ Easy to Extend
 
 All files follow the standard UVM layout, making it simple to add more operations or modify the ALU.
 
-2. Repository Structure
+## 2. Repository Structure
 /rtl
    alu.sv
 
@@ -53,7 +53,7 @@ All files follow the standard UVM layout, making it simple to add more operation
 
 README.md
 
-3. How to Run (ModelSim / QuestaSim)
+## 3. How to Run (ModelSim / QuestaSim)
 Compile
 vlog rtl/*.sv tb/*.sv assertions/*.sv +incdir+tb +incdir+assertions
 
@@ -66,7 +66,7 @@ Optional flags:
 +UVM_CONFIG_DB_TRACE
 +UVM_VERBOSITY=UVM_HIGH
 
-4. Testbench Architecture (ASCII Diagram — 100% GitHub Safe)
+## 4. Testbench Architecture (ASCII Diagram — 100% GitHub Safe)
 
 ```text
 +--------------------------------------------------------------------------+
@@ -95,7 +95,9 @@ Optional flags:
 
 
 
-5. Sequence Flow (Simplified Diagram)
+## 5. Sequence Flow (Simplified Diagram)
+
+```text
 Test
  └── Env
       └── Agent
@@ -104,14 +106,15 @@ Test
            ├── Monitor    → captures outputs
            ├── Scoreboard → compares expected vs actual
            └── Coverage   → measures functional coverage
+```
+
 
 
 
 These diagrams will always show on GitHub (no blank boxes, no dynamic rendering).
-
 This is the basic transaction flow used in most UVM designs.
 
-6. Bug Examples Found During Verification
+## 6. Bug Examples Found During Verification
 
 During regression, the following common bugs were detected:
 
@@ -138,22 +141,22 @@ ASSERTION FAILED: AND result has illegal bits
 
 Triggered when the DUT produced a bit in the result that was not present in both inputs.
 
-7. AI-Based Future Extensions (Very Simple, Human Tone)
+## 7. AI-Based Future Extensions (Very Simple, Human Tone)
 
 Even though the current project uses standard UVM, it can be extended for AI-related research:
 
-A. Coverage-Guided Input Selection
+### A. Coverage-Guided Input Selection
 
 Instead of random inputs, an ML model can look at uncovered bins and generate the next input that fills coverage faster.
 This is useful for reducing simulation cycles.
 
-B. Automatic Debug Suggestions
+### B. Automatic Debug Suggestions
 
 Waveform data, assertion failures, and scoreboard mismatches can be fed to an LLM that explains the most likely bug and suggests where in the RTL the issue may come from.
 
 These extensions fit well for research in AI-EDA and intelligent verification flows.
 
-8. Future Work
+## 8. Future Work
 
 Add overflow and carry flag coverage
 
