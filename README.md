@@ -10,7 +10,7 @@ The environment is structured so that anyone can extend it for more operations o
 ---
 ## 1. Features
 Randomized Stimulus
-
+---
 The sequencer and sequence classes generate random ALU operations, including corner cases such as zero, maximum positive, and minimum negative values.
 
 Functional Coverage
@@ -32,6 +32,7 @@ Easy to Extend
 All files follow the standard UVM layout, making it simple to add more operations or modify the ALU.
 ---
 ## 2. Repository Structure
+---
 /rtl
    alu.sv
 
@@ -54,6 +55,7 @@ All files follow the standard UVM layout, making it simple to add more operation
 README.md
 ---
 ## 3. How to Run (ModelSim / QuestaSim)
+---
 Compile
 vlog rtl/*.sv tb/*.sv assertions/*.sv +incdir+tb +incdir+assertions
 
@@ -67,6 +69,7 @@ Optional flags:
 +UVM_VERBOSITY=UVM_HIGH
 ---
 ## 4. Testbench Architecture (Main Diagram)
+---
 ```text
 +--------------------------------------------------------------------------+
 |                                   my_test                                |
@@ -174,7 +177,7 @@ This is a clean top-level view of your entire project:
 ```
 ---
 ## 5. Bug Examples Found During Verification
-
+---
 During regression, the following common bugs were detected:
 
 Mismatch in SUB Operation
@@ -201,6 +204,7 @@ ASSERTION FAILED: AND result has illegal bits
 Triggered when the DUT produced a bit in the result that was not present in both inputs.
 ---
 ## 6. AI-Based Future Extensions (Very Simple, Human Tone)
+---
 
 Even though the current project uses standard UVM, it can be extended for AI-related research:
 
@@ -216,7 +220,7 @@ Waveform data, assertion failures, and scoreboard mismatches can be fed to an LL
 These extensions fit well for research in AI-EDA and intelligent verification flows.
 ---
 ## 7. Future Work
-
+---
 Add overflow and carry flag coverage
 
 Add directed test sequences
