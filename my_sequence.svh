@@ -1,0 +1,38 @@
+
+class my_sequence extends uvm_sequence#(my_transaction);
+  `uvm_object_utils(my_sequence)
+  
+  int num_repeat = 8;
+  int max;
+  
+  //constructor 
+  function new(string name =" ");
+    super.new(name);
+  endfunction
+  
+  task body;
+    
+    if(! uvm_config_db#(int)::exists(null,"","num_repeat"))
+      `uvm_error("SEQ", "couldn't find num_repeat")
+      
+      
+    uvm_config_db#(int)::get(null,"","num_repeat", num_repeat);
+    uvm_config_db#(int)::get(null,"","max", max);
+    
+    repeat(num_repeat) begin
+      req = my_transaction::type_id::create("req");
+     start_item(req);
+      
+      if(! (req.randomize()with {req.in1 <= max; req.in2 <= max;}))begin
+        `uvm_error("MY_Sequence","randomize()failed")
+      end
+      
+     finish_item(req);
+     
+    end
+    
+  endtask : body
+  
+  
+  
+endclass : my_sequence
