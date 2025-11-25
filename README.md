@@ -175,7 +175,7 @@ This is a clean top-level view of your entire project:
 |                                                             |
 +-------------------------------------------------------------+
 ```
----
+
 ## 5. Bug Examples Found During Verification
 ---
 During regression, the following common bugs were detected:
@@ -202,7 +202,7 @@ ASSERTION FAILED: AND result has illegal bits
 
 
 Triggered when the DUT produced a bit in the result that was not present in both inputs.
----
+
 ## 6. AI-Based Future Extensions (Very Simple, Human Tone)
 ---
 
@@ -218,9 +218,10 @@ This is useful for reducing simulation cycles.
 Waveform data, assertion failures, and scoreboard mismatches can be fed to an LLM that explains the most likely bug and suggests where in the RTL the issue may come from.
 
 These extensions fit well for research in AI-EDA and intelligent verification flows.
----
+
 ## 7. Future Work
 ---
+
 Add overflow and carry flag coverage
 
 Add directed test sequences
