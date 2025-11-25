@@ -1,5 +1,5 @@
 $date
-	Mon Nov  3 00:37:12 2025
+	Tue Nov 25 06:16:56 2025
 $end
 $version
 	QuestaSim Version 2024.3_1
@@ -10,6 +10,27 @@ $end
 
 $scope module top $end
 $var reg 1 ! clock $end
+
+$scope module alu_sva $end
+
+$scope begin a_add_zero $end
+$upscope $end
+
+$scope begin a_no_xz_cmd $end
+$upscope $end
+
+$scope begin a_no_xz_result $end
+$upscope $end
+
+$scope begin a_opcode_range $end
+$upscope $end
+
+$scope begin a_reset_clear $end
+$upscope $end
+
+$scope begin a_reset_stable $end
+$upscope $end
+$upscope $end
 
 $scope module dut1 $end
 $var wire 1 " clock $end
