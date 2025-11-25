@@ -9,8 +9,9 @@ Assertions are added on the interface side to monitor illegal behavior during si
 The environment is structured so that anyone can extend it for more operations or integrate it into a larger processor pipeline later.
 ---
 ## 1. Features
+
 Randomized Stimulus
----
+
 The sequencer and sequence classes generate random ALU operations, including corner cases such as zero, maximum positive, and minimum negative values.
 
 Functional Coverage
@@ -32,7 +33,7 @@ Easy to Extend
 All files follow the standard UVM layout, making it simple to add more operations or modify the ALU.
 ---
 ## 2. Repository Structure
----
+
 /rtl
    alu.sv
 
