@@ -67,6 +67,8 @@ Optional flags:
 +UVM_VERBOSITY=UVM_HIGH
 
 4. Testbench Architecture (ASCII Diagram — 100% GitHub Safe)
+
+```text
 +--------------------------------------------------------------------------+
 |                                   my_test                                |
 +--------------------------------------------------------------------------+
@@ -89,6 +91,8 @@ Optional flags:
                                 +------+
                                 | DUT  |
                                 +------+
+```
+
 
 
 5. Sequence Flow (Simplified Diagram)
