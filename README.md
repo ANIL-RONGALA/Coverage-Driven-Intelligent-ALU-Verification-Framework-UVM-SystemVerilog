@@ -279,3 +279,9 @@ Failure-pattern grouping
 
 This provides a path to build an AI-powered verification assistant, one of my long-term research goals.
 
+## Acknowledgments
+
+This project was developed as part of advanced digital design verification practice. It reflects practical experience with UVM methodology, RAL models, callbacks, predictor design, and register-level verification.
+
+This project was developed under the academic guidance of Dr. Yuha Chen, Department of Electrical and Computer Engineering, University of Houston. A small amount of AI assistance was used solely for documentation refinement. All RTL and verification environment work is original
+
